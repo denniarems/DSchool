@@ -55,7 +55,8 @@ contract DSchool {
         CurrentStdId++;
         Std[msg.sender] = Student(CurrentStdId,_name, _age);
     }
-    function getStudent(uint _stdId) public view returns (string memory _name, uint _age){
+    function getStudent() public view returns (uint _stdId,string memory _name, uint _age){
+        _stdId =Std[msg.sender].stdId;
         _name = Std[msg.sender].name;
         _age = Std[msg.sender].age;
     }

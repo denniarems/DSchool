@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <div class="jumbotron">
+      <h3>Student Registration</h3>
+      <form action="setStudent" method="POST">
+        <div class="form-group">
+          <label for="pubkey">Public Key :</label>
+          <input type="text" class="form-control" id="pubkey">
+        </div>
+        <div class="form-group">
+          <label for="privkey">Private Key :</label>
+          <input type="text" class="form-control" id="privkey">
+        </div>
+        <div class="form-group">
+          <label for="name">Name :</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="age">Age :</label>
+          <input type="number" class="form-control" id="age">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="jumbotron">
+      <h3>View Student</h3>
+      <form action="setStudent" method="POST">
+        <div class="form-group">
+          <label for="pubkey">Public Key :</label>
+          <input type="text" class="form-control" id="pubkey">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div>
+        <h4>Roll Number : 55</h4>
+        <h4>Name : Dennis</h4>
+        <h4>Age : 25</h4>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <h3>Student Registration</h3>
+      <form action="setStudent" method="POST">
+        <div class="form-group">
+          <label for="pubkey">Public Key :</label>
+          <input type="text" class="form-control" id="pubkey">
+        </div>
+        <div class="form-group">
+          <label for="privkey">Private Key :</label>
+          <input type="text" class="form-control" id="privkey">
+        </div>
+        <div class="form-group">
+          <label for="name">Name :</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="age">Age :</label>
+          <input type="number" class="form-control" id="age">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+</body>
+
+</html>
