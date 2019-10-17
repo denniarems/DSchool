@@ -17,7 +17,7 @@ contract DSchool {
         string tech;
         uint stdId;
         address student;
-        address[] approvers;
+        uint[] approvers;
         uint approvedTime;
         bool valid;
     }
@@ -26,7 +26,16 @@ contract DSchool {
     Task[] public Assignments ;
     uint public CurrentStdId = 0;
     uint public CurrentEvaId = 0;
-
+    modifier userRegister(uint number) {
+        if(number == 0){
+            require(Evaluator[msg.sender].approverId == 0,"Evaluator Can't be Student");
+            require(Std[msg.sender].stdId == 0,"Already Registerd");
+        }else{
+            require(Std[msg.sender].stdId == 0,"Student Can't be Evaluator");
+            require(Evaluator[msg.sender].approverId == 0,"Already Registerd");
+        }
+        _;
+    }
     modifier onlyStudent() {
         require(Evaluator[msg.sender].approverId == 0,"Must be Student");
         require(Std[msg.sender].stdId > 0,"Student Must Registerd");
@@ -37,7 +46,12 @@ contract DSchool {
         require(Evaluator[msg.sender].approverId > 0,"Evaluato Must Registerd");
         _;
     }
-    function setStudent( string memory _name, uint _age) public  {
+    modifier eligibility(uint _position) {
+        require( keccak256(abi.encodePacked(Assignments[_position].tech)) ==  keccak256(abi.encodePacked(Evaluator[msg.sender].skill)),"You Don't Know , What Tech it is ");
+        require( Evaluator[msg.sender].skillRank > 1000,"Need credibility Score More than 1000 ");
+        _;
+    }
+    function setStudent( string memory _name, uint _age) public userRegister(0)  {
         CurrentStdId++;
         Std[msg.sender] = Student(CurrentStdId,_name, _age);
     }
@@ -45,7 +59,7 @@ contract DSchool {
         _name = Std[msg.sender].name;
         _age = Std[msg.sender].age;
     }
-    function setApprover(string memory _name,string memory _skill, uint _skillRank) public  {
+    function setApprover(string memory _name,string memory _skill, uint _skillRank) public userRegister(1) {
         CurrentEvaId++;
         Evaluator[msg.sender] = Approver(CurrentEvaId,_name, _skill,_skillRank);
     }
@@ -60,11 +74,17 @@ contract DSchool {
         task.tech = _tech;
         task.stdId = Std[msg.sender].stdId;
         task.student = msg.sender;
+        task.approvers;
+        task.approvedTime = 0;
         task.valid = false;
         Assignments.push(task);
     }
-    function Upvoting() public onlyapprover {
-        
+    function Upvoting(uint _position) public onlyapprover eligibility(_position) {
+        Assignments[_position].approvers.push(Evaluator[msg.sender].approverId);
+        if (!Assignments[_position].valid) {
+            if(Assignments[_position].approvers.length == 5){
+                Assignments[_position].valid = true;
+            }
+        } 
     }
-
 }
