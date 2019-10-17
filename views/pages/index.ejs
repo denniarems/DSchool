@@ -17,19 +17,19 @@
       <form action="setStudent" method="POST">
         <div class="form-group">
           <label for="pubkey">Public Key :</label>
-          <input type="text" class="form-control" id="pubkey">
+          <input required type="text" class="form-control" id="pubkey">
         </div>
         <div class="form-group">
           <label for="privkey">Private Key :</label>
-          <input type="text" class="form-control" id="privkey">
+          <input required type="text" class="form-control" id="privkey">
         </div>
         <div class="form-group">
           <label for="name">Name :</label>
-          <input type="text" class="form-control" id="name">
+          <input required type="text" class="form-control" id="name">
         </div>
         <div class="form-group">
           <label for="age">Age :</label>
-          <input type="number" class="form-control" id="age">
+          <input required type="number" class="form-control" id="age">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -39,7 +39,7 @@
       <form action="setStudent" method="POST">
         <div class="form-group">
           <label for="pubkey">Public Key :</label>
-          <input type="text" class="form-control" id="pubkey">
+          <input required type="text" class="form-control" id="pubkey">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -51,23 +51,31 @@
     </div>
     <div class="jumbotron">
       <h3>Student Registration</h3>
-      <form action="setStudent" method="POST">
+      <form action="taskSubmit" method="POST">
         <div class="form-group">
           <label for="pubkey">Public Key :</label>
-          <input type="text" class="form-control" id="pubkey">
+          <input required type="text" class="form-control" id="pubkey">
         </div>
         <div class="form-group">
           <label for="privkey">Private Key :</label>
-          <input type="text" class="form-control" id="privkey">
+          <input required type="text" class="form-control" id="privkey">
         </div>
         <div class="form-group">
-          <label for="name">Name :</label>
-          <input type="text" class="form-control" id="name">
+          <label for="name">Task Name :</label>
+          <input required type="text" class="form-control" id="name">
         </div>
-        <div class="form-group">
-          <label for="age">Age :</label>
-          <input type="number" class="form-control" id="age">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <label class="input-group-text" for="inputGroupSelect01">Used Tech</label>
+          </div>
+          <select required class="form-control" id="inputGroupSelect01">
+            <option value="Javascript">Javascript</option>
+            <option value="Solidity">Solidity</option>
+            <option value="Angular">Angular</option>
+            <option value="React">React</option>
+          </select>
         </div>
+        <br>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

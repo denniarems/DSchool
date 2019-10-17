@@ -64,7 +64,8 @@ contract DSchool {
         CurrentEvaId++;
         Evaluator[msg.sender] = Approver(CurrentEvaId,_name, _skill,_skillRank);
     }
-    function getApprover(uint evaId) public view returns (string memory _name,string memory _skill, uint _skillRank){
+    function getApprover() public view returns (uint _evaId,string memory _name,string memory _skill, uint _skillRank){
+        _evaId = Evaluator[msg.sender].approverId;
         _name = Evaluator[msg.sender].name;
         _skill = Evaluator[msg.sender].skill;
         _skillRank = Evaluator[msg.sender].skillRank;
