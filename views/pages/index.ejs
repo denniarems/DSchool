@@ -14,61 +14,61 @@
   <main>
     <div class="jumbotron">
       <h3>Student Registration</h3>
-      <form action="setStudent" method="POST">
+      <form action="Student/set" method="POST">
         <div class="form-group">
           <label for="pubkey">Public Key :</label>
-          <input required type="text" class="form-control" id="pubkey">
+          <input required type="text" class="form-control" id="pubkey" name="pubkey">
         </div>
         <div class="form-group">
           <label for="privkey">Private Key :</label>
-          <input required type="text" class="form-control" id="privkey">
+          <input required type="text" class="form-control" id="privkey" name="privkey">
         </div>
         <div class="form-group">
           <label for="name">Name :</label>
-          <input required type="text" class="form-control" id="name">
+          <input required type="text" class="form-control" id="name" name="name">
         </div>
         <div class="form-group">
           <label for="age">Age :</label>
-          <input required type="number" class="form-control" id="age">
+          <input required type="number" class="form-control" id="age" name="age">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     <div class="jumbotron">
       <h3>View Student</h3>
-      <form action="setStudent" method="POST">
+      <form action="Student/get" method="GET">
         <div class="form-group">
           <label for="pubkey">Public Key :</label>
-          <input required type="text" class="form-control" id="pubkey">
+          <input required type="text" class="form-control" name="pubkey" id="pubkey">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <div>
-        <h4>Roll Number : 55</h4>
-        <h4>Name : Dennis</h4>
-        <h4>Age : 25</h4>
+        <h4>Roll Number : <%= myData._stdId %></h4>
+        <h4>Name : <%= myData._name %></h4>
+        <h4>Age : <%= myData._age %></h4>
       </div>
     </div>
     <div class="jumbotron">
-      <h3>Student Registration</h3>
-      <form action="taskSubmit" method="POST">
+      <h3>Task Submision</h3>
+      <form action="Student/task" method="POST">
         <div class="form-group">
           <label for="pubkey">Public Key :</label>
-          <input required type="text" class="form-control" id="pubkey">
+          <input required type="text" class="form-control" name="pubkey" id="pubkey">
         </div>
         <div class="form-group">
           <label for="privkey">Private Key :</label>
-          <input required type="text" class="form-control" id="privkey">
+          <input required type="text" class="form-control" name="privkey" id="privkey">
         </div>
         <div class="form-group">
           <label for="name">Task Name :</label>
-          <input required type="text" class="form-control" id="name">
+          <input required type="text" class="form-control" name="name" id="name">
         </div>
         <div class="input-group">
           <div class="input-group-addon">
-            <label class="input-group-text" for="inputGroupSelect01">Used Tech</label>
+            <label class="input-group-text" for="skill">Used Tech</label>
           </div>
-          <select required class="form-control" id="inputGroupSelect01">
+          <select required class="form-control" name="skill" id="skill">
             <option value="Javascript">Javascript</option>
             <option value="Solidity">Solidity</option>
             <option value="Angular">Angular</option>
@@ -84,7 +84,7 @@
   <footer>
     <% include ../partials/footer %>
   </footer>
-
+  <!-- <script src="js/Student.js"></script> -->
 </body>
 
 </html>

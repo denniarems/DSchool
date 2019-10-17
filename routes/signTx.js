@@ -1,4 +1,4 @@
-const Tx = require('ethereumjs-tx');
+const Tx = require('ethereumjs-tx').Transaction
 
 module.exports.sendTransaction = function (
   methodCall,
