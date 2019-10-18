@@ -26,7 +26,7 @@
 
 ### Steps:
     1.Clone & Navigate into main directory
-    2.Run "npm install" and "npm start"
+    2.Run "npm install","truffle migrate --reset" and "npm start"
     3.Open Browser & navigate LocalHost- http://localhost:3000 or Ip Address- http://127.0.0.1:3000
 
 > There are three pages in this application
