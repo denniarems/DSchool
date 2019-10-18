@@ -20,13 +20,10 @@ router.post('/set', function (req, res, next) {
         response ? res.send('Evaluator Registered') : res.send('Transaction failed');
     });
 });
-router.get('/get', function (req, res, next) {
+router.get('/get', async function (req, res, next) {
     data = req.query;
-    DS.methods.getApprover()
-        .call({ from: data.pubkey }).then((val) => {
-            console.log(val);
-            res.render('pages/evaluator', { myData: val });
-        })
+    const val = await DS.methods.getApprover().call({ from: data.pubkey })
+    res.render('pages/evaluator', { myData: val });
 });
 router.post('/vote', function (req, res, next) {
     data = req.body;

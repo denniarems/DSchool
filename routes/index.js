@@ -39,7 +39,6 @@ router.get('/Tasks', async function (req, res, next) {
     }
     const validTask = tasklist.filter(task => task.valid)
     const nonValidTask = tasklist.filter(task => !task.valid)
-
     res.render('pages/tasks', { validTask, nonValidTask });
   } catch (error) {
     console.log(error);
