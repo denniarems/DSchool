@@ -21,8 +21,8 @@
 
 ### INSTRUCTIONS FOR SETTING-UP  APPLICATION Requirements:
     - [X] NodeJs stable npm latest
-    - [X] Truffle stable npm latest
-    - [X] Ganache GUI(Recamended) version v2.1.1
+    - [X] Truffle latest  npm i -g truffle
+    - [X] Ganache GUI(Recamended) version v2.1.1 : https://www.trufflesuite.com/ganache
 
 ### Steps:
     1.Clone & Navigate into main directory
