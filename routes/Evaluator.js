@@ -35,7 +35,6 @@ router.post('/vote', function (req, res, next) {
     let methodCall = DS.methods.Upvoting(
         id
     );
-
     signTxn.sendTransaction(methodCall, publicAddress, privateKey, response => {
         response ? res.send('Task Verifed Successfully') : res.send('Transaction failed');
     });
