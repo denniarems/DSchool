@@ -18,7 +18,6 @@ contract DSchool {
         string tech;
         uint stdId;
         address student;
-        uint approveCount;
         uint[] approvers;
         uint approvedTime;
         bool valid;
@@ -83,26 +82,27 @@ contract DSchool {
         task.tech = _tech;
         task.stdId = Std[msg.sender].stdId;
         task.student = msg.sender;
-        task.approveCount = 0;
         task.approvers;
         task.approvedTime = 0;
         task.valid = false;
         Assignments.push(task);
+   
     }
     function Upvoting(uint _position) public onlyApprover eligibility(_position) returns (bool) {
         // uint counter = Assignments[_position].approveCount;
         uint evalId = Evaluator[msg.sender].approverId;
         Assignments[_position].approvers.push(evalId);
         approvedList[msg.sender][_position] = true;
-        Assignments[_position].approveCount += 1;
-        if(Assignments[_position].approveCount == 5){
+        if(Assignments[_position].approvers.length == 5){
             Assignments[_position].valid = true;
             Assignments[_position].approvedTime = now;
         }
         return approvedList[msg.sender][_position];
     }
-    
-    function viewApprovers (uint _position) public view onlyApprover returns (uint[] memory, uint){
-        return (Assignments[_position].approvers, Assignments[_position].approvers.length);
+    function TotalTasks() public view returns(uint _total) {
+        return Assignments.length;
+    }
+    function viewAssignment (uint _position) public view  returns (string memory _name,string memory _tech,uint _stdId,uint[] memory _approvers,uint _time,bool _valid){
+        return(Assignments[_position].name,Assignments[_position].tech,Assignments[_position].stdId,Assignments[_position].approvers,Assignments[_position].approvedTime,Assignments[_position].valid);
     }
 }

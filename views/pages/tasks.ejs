@@ -21,74 +21,31 @@
             <div class="valid" style="  align-self:stretch;">
                 <h3>Varifed Projects</h3>
                 <ul class="list-group" style="width: 550px;">
+                    <% validTask.forEach(task => { %>
                     <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                        <p>approvers</p>
-                        <p>approvedTime</p>
+                        <p>Project id : </p>
+                        <p>Project Name : <%= task._name %></p>
+                        <p>Tech Used : <%= task._tech %></p>
+                        <p>Student Id : <%= task._stdId %></p>
+                        <p>approvers : <%= task._approvers %> </p>
+                        <p>approvedTime : <%= task._time %></p>
                     </li>
-                    <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                        <p>approvers</p>
-                        <p>approvedTime</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                        <p>approvers</p>
-                        <p>approvedTime</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                        <p>approvers</p>
-                        <p>approvedTime</p>
-                    </li>
+                    <% }); %>
                 </ul>
 
             </div>
             <div class="notvalid" style="  align-self:stretch;">
                 <h3>UnVarifed Projects</h3>
                 <ul class="list-group" style="width: 550px;">
+                    <% nonValidTask.forEach(task => { %>
                     <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
+                        <p>Project id : </p>
+                        <p>Project Name : <%= task._name %></p>
+                        <p>Tech Used : <%= task._tech %></p>
+                        <p>Student Id : <%= task._stdId %></p>
+                        <p>approvers : <%= task._approvers %> </p>
                     </li>
-                    <li class=" list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Project id</p>
-                        <p>Project Name</p>
-                        <p>Tech Used</p>
-                        <p>Student Id</p>
-                    </li>
+                    <% }); %>
                 </ul>
             </div>
         </div>
