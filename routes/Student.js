@@ -2,6 +2,9 @@ let express = require('express');
 let router = express.Router();
 const signTxn = require('./signTx');
 
+router.get('/Student/get', function (req, res, next) {
+    res.send('We Dont Work in That Way! Go Back And Click Student Corner');
+});
 router.post('/set', function (req, res, next) {
     data = req.body;
 

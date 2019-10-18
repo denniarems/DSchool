@@ -21,31 +21,43 @@
             <div class="valid" style="  align-self:stretch;">
                 <h3>Varifed Projects</h3>
                 <ul class="list-group" style="width: 550px;">
+                    <% if (validTask.length > 0) { %>
                     <% validTask.forEach(task => { %>
                     <li class="list-group-item">
-                        <p>Project id : </p>
-                        <p>Project Name : <%= task._name %></p>
-                        <p>Tech Used : <%= task._tech %></p>
-                        <p>Student Id : <%= task._stdId %></p>
-                        <p>approvers : <%= task._approvers %> </p>
-                        <p>approvedTime : <%= task._time %></p>
+                        <p>Project id : <%= task.id %></p>
+                        <p>Project Name : <%= task.name %></p>
+                        <p>Tech Used : <%= task.tech %></p>
+                        <p>Student Id : <%= task.stdId %></p>
+                        <p>approvers : <%= task.approvers %> </p>
+                        <p>approvedTime : <%= task.time %></p>
                     </li>
                     <% }); %>
+                    <%  } else { %>
+                    <li class="list-group-item">
+                        <h1>No Projects Found As Varifed</h1>
+                    </li>
+                    <% } %>
                 </ul>
 
             </div>
             <div class="notvalid" style="  align-self:stretch;">
                 <h3>UnVarifed Projects</h3>
                 <ul class="list-group" style="width: 550px;">
+                    <% if (nonValidTask.length > 0) { %>
                     <% nonValidTask.forEach(task => { %>
                     <li class="list-group-item">
-                        <p>Project id : </p>
-                        <p>Project Name : <%= task._name %></p>
-                        <p>Tech Used : <%= task._tech %></p>
-                        <p>Student Id : <%= task._stdId %></p>
-                        <p>approvers : <%= task._approvers %> </p>
+                        <p>Project id : <%= task.id %></p>
+                        <p>Project Name : <%= task.name %></p>
+                        <p>Tech Used : <%= task.tech %></p>
+                        <p>Student Id : <%= task.stdId %></p>
+                        <p>approvers : <%= task.approvers %> </p>
                     </li>
                     <% }); %>
+                    <%  } else { %>
+                    <li class="list-group-item">
+                        <h1>No Projects Found As UnVarifed</h1>
+                    </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
